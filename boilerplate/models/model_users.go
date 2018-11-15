@@ -31,6 +31,9 @@ type User struct {
 	UpdatedAt *time.Time `form:"updated_at" json:"updated_at,omitempty" comment:""`
 }
 
+func (m *User) TableName() string {
+	return "users"
+}
 func (m *User) One() (one *User, err error) {
 	one = &User{}
 	err = crudOne(m, one)

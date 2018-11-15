@@ -29,7 +29,7 @@ go get github.com/dejavuzhou/ginbo
 如果你本机设置了`GOBIN`,那么上面的命令就会安装到 `GOBIN`下，请添加`GOBIN`到你的环境变量中
 
 ## 使用
-`ginbo gen -u root -p PASSWORD -a "127.0.0.1:3306" -d "dbname" -o "github.com/mojocn/apiapp" `
+`ginbo gen -u root -p PASSWORD -a "127.0.0.1:3306" -d dbname -o "github.com/mojocn/apiapp"`
 - cd 到生成的项目
 - go build  和run
 - 访问[`http://127.0.0.1:5555/swagger`](http://127.0.0.1:5555/swagger)

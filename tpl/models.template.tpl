@@ -12,6 +12,10 @@ type {{.ModelName}} struct {
 	{{.ModelTag}}{{end}}
 }
 
+func (m *{{.ModelName}}) TableName() string {
+	return "{{.TableName}}"
+}
+
 func (m *{{.ModelName}}) One() (one *{{.ModelName}}, err error) {
 	one = &{{.ModelName}}{}
 	err = crudOne(m, one)
