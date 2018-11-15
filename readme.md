@@ -6,16 +6,18 @@
     - mysql 数据库 <= 5.7
 
 ## 依赖
-	"go get -u github.com/gin-contrib/cors"
-	"go get -u github.com/gin-contrib/static"
-	"go get -u github.com/gin-gonic/autotls"
-	"go get -u github.com/gin-gonic/gin"
-	"go get -u github.com/sirupsen/logrus"
-	"go get -u github.com/spf13/viper"
-	"go get -u github.com/spf13/cobra"
-    "go get -u github.com/go-redis/redis"
-    "go get -u github.com/go-sql-driver/mysql"
-    "go get -u github.com/jinzhu/gorm"
+```shell
+go get -u github.com/gin-contrib/cors
+go get -u github.com/gin-contrib/static
+go get -u github.com/gin-gonic/autotls
+go get -u github.com/gin-gonic/gin
+go get -u github.com/sirupsen/logrus
+go get -u github.com/spf13/viper
+go get -u github.com/spf13/cobra
+go get -u github.com/go-redis/redis
+go get -u github.com/go-sql-driver/mysql
+go get -u github.com/jinzhu/gorm
+```
     
 ## ginbo工具安装
 您可以通过如下的方式安装 bee 工具：
