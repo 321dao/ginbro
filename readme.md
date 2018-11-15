@@ -1,4 +1,9 @@
 #
+## 环境
+- 我的开发环境
+    - Windows 10 专业版 64位
+    - go version go1.11.1 windows/amd64
+    - mysql 数据库 <= 5.7
 
 ## 依赖
 
@@ -37,3 +42,17 @@ com/dejavuzhou/gin-project")
 
 
 ```
+
+## 开发计划
+
+[] 支持PostgreSQL数据库
+[] 支持一键生产jwt密码验证
+[] 支持MongoDB数据库
+[] 更具数据映射关联模型
+[] 分页总数做redis缓存
+[] 支持生成gRPC服务
+
+
+## 致谢
+- [gin-gonic/gin框架](https://github.com/gin-gonic/gin)
+- [GORM数据库ORM](http://gorm.io/)

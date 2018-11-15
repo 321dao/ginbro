@@ -1,4 +1,3 @@
-# boilerplate project
+# boilerplate project code
 
 
-swagger generate spec -o ./swagger/swagger.json
