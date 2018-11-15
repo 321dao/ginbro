@@ -120,6 +120,7 @@ com/dejavuzhou/gin-project")
 - [ ] json不现实password等隐私字段
 - [ ] swaggerDoc参数说明继续优化
 - [ ] 生成友好的.gitignore
+- [ ] 完善go doc
 
 ## 注意
 - mysql表中没有id/ID/Id/iD字段将不会生成路由和模型
