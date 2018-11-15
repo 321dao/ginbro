@@ -68,3 +68,4 @@ com/dejavuzhou/gin-project")
 - [viper配置文件读取](https://github.com/spf13/viper)
 - [cobra命令行工具](https://github.com/spf13/cobra#getting-started)
 
+## 请各位大神不要吝惜提`issue`同时附上数据库表结构文件
