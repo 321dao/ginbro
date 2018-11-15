@@ -1,5 +1,5 @@
 [app]
-    name = "ginger"
+    name = "ginBro"
     env = "local" # only allows local/dev/test/prod
     secret = "{{.AppSecret}}"
     log_level = "error" # only allows debug info warn error fatal panic

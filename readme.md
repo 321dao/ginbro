@@ -1,5 +1,9 @@
 # [一行命令根据mysql数据库生产RESTful APIs APP](https://github.com/dejavuzhou/ginbo)
-##### Ginbo,GinBro,Gimbo,GimBro,**Jimbo**,GinOrm or GinGorm
+##### Ginbo,**GinBro**,Gimbo,GimBro,**Jimbo**,GinOrm or GinGorm
+## Feature
+- 自动生成完善的swagger(postman)文档
+- 可以server SPA应用(比如vuejs全家桶)
+- 快速使用golang+gin+gorm改造依赖mysql项目
     
 ## ginbo工具安装
 您可以通过如下的方式安装 bee 工具：
