@@ -6,23 +6,32 @@
     - mysql 数据库 <= 5.7
 
 ## 依赖
+	"go get -u github.com/gin-contrib/cors"
+	"go get -u github.com/gin-contrib/static"
+	"go get -u github.com/gin-gonic/autotls"
+	"go get -u github.com/gin-gonic/gin"
+	"go get -u github.com/sirupsen/logrus"
+	"go get -u github.com/spf13/viper"
+	"go get -u github.com/spf13/cobra"
+    "go get -u github.com/go-redis/redis"
+    "go get -u github.com/go-sql-driver/mysql"
+    "go get -u github.com/jinzhu/gorm"
+    
+## ginbo工具安装
+您可以通过如下的方式安装 bee 工具：
+```shell
+go get github.com/dejavuzhou/ginbo
+```
+安装完之后，`ginbo` 可执行文件默认存放在 `$GOPATH/bin` 里面，所以您需要把 `$GOPATH/bin` 添加到您的环境变量中，才可以进行下一步。
+如何添加环境变量，请自行搜索
+如果你本机设置了`GOBIN`,那么上面的命令就会安装到 `GOBIN`下，请添加`GOBIN`到你的环境变量中
 
-	"github.com/gin-contrib/cors"
-	"github.com/gin-contrib/static"
-	"github.com/gin-gonic/autotls"
-	"github.com/gin-gonic/gin"
-	"github.com/sirupsen/logrus"
-	"github.com/spf13/viper"
-    "github.com/go-redis/redis"
-    _ "github.com/go-sql-driver/mysql"
-    "github.com/jinzhu/gorm"
-- 使用
-
+## 使用
 `ginbo gen -u root -p PASSWORD -a "127.0.0.1:3306" -d "dbname" -o "github.com/mojocn/apiapp" `
 
-
+### 参数输密
 ```shell
-$ ./ginbo gen -h
+ginbo gen -h
 generate a RESTful APIs app with gin and gorm for gophers. For example:
         ginbo gen -u eric -p password -a "127.0.0.1:3306" -d "mydb"
 
@@ -39,8 +48,6 @@ Flags:
 com/dejavuzhou/gin-project")
   -p, --password string   database password (default "Password")
   -u, --user string       database user name (default "root")
-
-
 ```
 
 ## 开发计划
@@ -56,3 +63,6 @@ com/dejavuzhou/gin-project")
 ## 致谢
 - [gin-gonic/gin框架](https://github.com/gin-gonic/gin)
 - [GORM数据库ORM](http://gorm.io/)
+- [viper配置文件读取](https://github.com/spf13/viper)
+- [cobra命令行](https://github.com/spf13/cobra#getting-started)
+
