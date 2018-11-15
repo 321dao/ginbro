@@ -124,7 +124,7 @@ paths:
           description: "successful operation"
           schema:
             $ref: "#/definitions/{{.ModelName}}"
-     delete:
+    delete:
       tags:
       - "{{.ResourceName}}"
       summary: "Destroy a {{.ResourceName}} by ID"

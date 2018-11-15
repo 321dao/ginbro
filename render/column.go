@@ -21,7 +21,7 @@ type col struct {
 }
 
 func newCol(cName, dType, cComment, cKey, cType string) col {
-	modelProperty := strcase.ToCamel(cName)
+	modelProperty := strcase.ToCamel(strings.ToLower(cName))
 	modelType := "NoneType"
 	swgType, swgFormat := "", ""
 	switch dType {
