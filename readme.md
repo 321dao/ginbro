@@ -34,7 +34,7 @@ go get github.com/dejavuzhou/ginbo
 - go build  和run
 - 访问[`http://127.0.0.1:5555/swagger`](http://127.0.0.1:5555/swagger)
 
-### 生成新project目录树
+### 生成新project目录树 [ginbo-son DEMO代码](https://github.com/dejavuzhou/ginbo-son)
 ```shell
 C:\Users\zhouqing1\go\src\github.com\mojocn\apiapp>tree /f /a
 Folder PATH listing
@@ -119,6 +119,7 @@ com/dejavuzhou/gin-project")
 - [ ] 更详细的gorm tag信息
 - [ ] json不现实password等隐私字段
 - [ ] swaggerDoc参数说明继续优化
+- [ ] 生成友好的.gitignore
 
 ## 注意
 - mysql表中没有id/ID/Id/iD字段将不会生成路由和模型
