@@ -34,6 +34,59 @@ go get github.com/dejavuzhou/ginbo
 - go build  和run
 - 访问[`http://127.0.0.1:5555/swagger`](http://127.0.0.1:5555/swagger)
 
+### 生成新project目录树
+```shell
+C:\Users\zhouqing1\go\src\github.com\mojocn\apiapp>tree /f /a
+Folder PATH listing
+Volume serial number is 8452-D575
+C:.
+|   2018-11-15-app.log
+|   config.toml
+|   main.go
+|   readme.md
+|
++---config
+|       viper.go
+|
++---handlers
+|       gin.go
+|       handler_wp_litespeed_img_optm.go
+|       handler_wp_litespeed_optimizer.go
+|       handler_wp_posts.go
+|       handler_wp_users.go
+|       handler_wp_yoast_seo_links.go
+|
++---models
+|       db.go
+|       model_wp_litespeed_img_optm.go
+|       model_wp_litespeed_optimizer.go
+|       model_wp_posts.go
+|       model_wp_users.go
+|       model_wp_yoast_seo_links.go
+|
++---static
+|   |   .gitignore
+|   |   index.html
+|   |   readme.md
+|   |
+|   \---index_files
+|           jquery.js.download
+|           style.css
+|           syntax.css
+|
+\---swagger
+        .gitignore
+        doc.yml
+        favicon-16x16.png
+        favicon-32x32.png
+        index.html
+        oauth2-redirect.html
+        readme.md
+        swagger-ui-bundle.js
+        swagger-ui-standalone-preset.js
+        swagger-ui.css
+        swagger-ui.js
+```
 ### 命令参数说明
 ```shell
 ginbo gen -h
