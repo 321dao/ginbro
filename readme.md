@@ -1,24 +1,5 @@
 # [一行命令根据mysql数据库生产RESTful APIs APP](https://github.com/dejavuzhou/ginbo)
 ##### Ginbo,GinBro,Gimbo,GimBro,**Jimbo**,GinOrm or GinGorm
-## 环境
-- 我的开发环境
-    - Windows 10 专业版 64位
-    - go version go1.11.1 windows/amd64
-    - mysql 数据库 <= 5.7
-
-## 依赖
-```shell
-go get -u github.com/gin-contrib/cors
-go get -u github.com/gin-contrib/static
-go get -u github.com/gin-gonic/autotls
-go get -u github.com/gin-gonic/gin
-go get -u github.com/sirupsen/logrus
-go get -u github.com/spf13/viper
-go get -u github.com/spf13/cobra
-go get -u github.com/go-redis/redis
-go get -u github.com/go-sql-driver/mysql
-go get -u github.com/jinzhu/gorm
-```
     
 ## ginbo工具安装
 您可以通过如下的方式安装 bee 工具：
@@ -108,7 +89,25 @@ com/dejavuzhou/gin-project")
   -p, --password string   database password (default "Password")
   -u, --user string       database user name (default "root")
 ```
+## 环境
+- 我的开发环境
+    - Windows 10 专业版 64位
+    - go version go1.11.1 windows/amd64
+    - mysql 数据库 <= 5.7
 
+## 依赖
+```shell
+go get -u github.com/gin-contrib/cors
+go get -u github.com/gin-contrib/static
+go get -u github.com/gin-gonic/autotls
+go get -u github.com/gin-gonic/gin
+go get -u github.com/sirupsen/logrus
+go get -u github.com/spf13/viper
+go get -u github.com/spf13/cobra
+go get -u github.com/go-redis/redis
+go get -u github.com/go-sql-driver/mysql
+go get -u github.com/jinzhu/gorm
+```
 ## 开发计划
 
 - [ ] 支持PostgreSQL数据库
