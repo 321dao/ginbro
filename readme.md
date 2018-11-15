@@ -45,12 +45,12 @@ com/dejavuzhou/gin-project")
 
 ## 开发计划
 
-[] 支持PostgreSQL数据库
-[] 支持一键生产jwt密码验证
-[] 支持MongoDB数据库
-[] 更具数据映射关联模型
-[] 分页总数做redis缓存
-[] 支持生成gRPC服务
+- [ ] 支持PostgreSQL数据库
+- [ ] 支持一键生产jwt密码验证
+- [ ] 支持MongoDB数据库
+- [ ] 更具数据映射关联模型
+- [ ] 分页总数做redis缓存
+- [ ] 支持生成gRPC服务
 
 
 ## 致谢
