@@ -21,6 +21,7 @@ type col struct {
 }
 
 func newCol(cName, dType, cComment, cKey, cType string) col {
+	cComment = strings.Replace(cComment, `"`, "", -1)
 	modelProperty := strcase.ToCamel(strings.ToLower(cName))
 	modelType := "NoneType"
 	swgType, swgFormat := "", ""
@@ -59,6 +60,9 @@ func newCol(cName, dType, cComment, cKey, cType string) col {
 	if cKey == "PRI" {
 		modelType = "uint"
 		swgFormat, swgType = "int64", "integer"
+	}
+	if cName == "ID" || cName == "Id" || cName == "iD" || cName == "id" {
+		modelType = "uint"
 	}
 
 	//Content   string     `form:"content" json:"content,omitempty" comment:""`
