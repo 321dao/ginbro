@@ -28,11 +28,24 @@ func newCol(cName, dType, cComment, cKey, cType string) col {
 	case "varchar", "longtext", "char", "enum", "set", "mediumtext", "json", "text":
 		modelType = "string"
 		swgFormat, swgType = "string", "string"
-	case "bigint", "int", "tinyint", "smallint":
+	case "bigint":
 		modelType = "int"
 		swgFormat, swgType = "int64", "integer"
-
-	case "decimal", "float", "double":
+		if strings.Contains(cType, "unsigned") {
+			modelType = "uint64"
+			swgFormat, swgType = "int64", "integer"
+		}
+	case "int", "tinyint", "smallint":
+		modelType = "int"
+		swgFormat, swgType = "int64", "integer"
+		if strings.Contains(cType, "unsigned") {
+			modelType = "uint"
+			swgFormat, swgType = "int32", "integer"
+		}
+	case "decimal", "float":
+		swgFormat, swgType = "float", "number"
+		modelType = "float32"
+	case "double":
 		swgFormat, swgType = "float", "number"
 		modelType = "float64"
 	case "blob":
@@ -42,16 +55,12 @@ func newCol(cName, dType, cComment, cKey, cType string) col {
 		swgFormat, swgType = "date-time", "string"
 		modelType = "*time.Time"
 	}
-	if strings.Contains(cType, "unsigned") {
-		modelType = "uint"
-		swgFormat, swgType = "int64", "integer"
 
-	}
 	if cKey == "PRI" {
-		modelType = "uint"
+		modelType = "uint64"
 		swgFormat, swgType = "int64", "integer"
-
 	}
+
 	//Content   string     `form:"content" json:"content,omitempty" comment:""`
 	pt := fmt.Sprintf("%s   %s", modelProperty, modelType)
 	sql := ""
@@ -64,7 +73,11 @@ func newCol(cName, dType, cComment, cKey, cType string) col {
 	if dType == "json" {
 		cComment = fmt.Sprintf("must a string can unmarsh to an Object. %s", cComment)
 	}
-	tag := fmt.Sprintf(`form:"%s" json:"%s,omitempty" comment:"%s" sql:"%s"`, cName, cName, cComment, sql)
+	format := `gorm:"column:%s" form:"%s" json:"%s" comment:"%s" sql:"%s"`
+	if modelType == "*time.Time" {
+		format = `gorm:"column:%s" form:"%s" json:"%s,omitempty" comment:"%s" sql:"%s"`
+	}
+	tag := fmt.Sprintf(format, cName, cName, cName, cComment, sql)
 	modelTag := fmt.Sprintf("%s     `%s`", pt, tag)
 	return col{cName, cComment, modelProperty, modelType, modelTag, swgType, swgFormat}
 }
