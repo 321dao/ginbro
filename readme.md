@@ -1,4 +1,4 @@
-# 一行命令更具mysql数据库生产RESTful APIs APP
+# 一行命令根据mysql数据库生产RESTful APIs APP
 ## 环境
 - 我的开发环境
     - Windows 10 专业版 64位
