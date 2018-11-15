@@ -30,6 +30,9 @@ go get github.com/dejavuzhou/ginbo
 
 ## 使用
 `ginbo gen -u root -p PASSWORD -a "127.0.0.1:3306" -d "dbname" -o "github.com/mojocn/apiapp" `
+- cd 到生成的项目
+- go build  和run
+- 访问[`http://127.0.0.1:5555/swagger`](http://127.0.0.1:5555/swagger)
 
 ### 命令参数说明
 ```shell
