@@ -31,7 +31,7 @@ go get github.com/dejavuzhou/ginbo
 ## 使用
 `ginbo gen -u root -p PASSWORD -a "127.0.0.1:3306" -d "dbname" -o "github.com/mojocn/apiapp" `
 
-### 参数输密
+### 命令参数说明
 ```shell
 ginbo gen -h
 generate a RESTful APIs app with gin and gorm for gophers. For example:
@@ -66,5 +66,5 @@ com/dejavuzhou/gin-project")
 - [gin-gonic/gin框架](https://github.com/gin-gonic/gin)
 - [GORM数据库ORM](http://gorm.io/)
 - [viper配置文件读取](https://github.com/spf13/viper)
-- [cobra命令行](https://github.com/spf13/cobra#getting-started)
+- [cobra命令行工具](https://github.com/spf13/cobra#getting-started)
 
