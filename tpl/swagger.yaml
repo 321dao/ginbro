@@ -1,8 +1,8 @@
 swagger: "2.0"
 info:
-  description: "gin gorm swagger RESTful APIs"
+  description: "Ginbo RESTful APIs"
   version: "1.0.0"
-  title: "Gin+Gorm+Project"
+  title: "Ginbo RESTful APIs Application"
 host: "{{.AppAddr}}"
 basePath: "/api/v1"
 

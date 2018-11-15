@@ -35,7 +35,7 @@ func newCol(cName, dType, cComment, cKey, cType string) col {
 			modelType = "uint64"
 			swgFormat, swgType = "int64", "integer"
 		}
-	case "int", "tinyint", "smallint":
+	case "int", "tinyint", "smallint", "mediumint":
 		modelType = "int"
 		swgFormat, swgType = "int64", "integer"
 		if strings.Contains(cType, "unsigned") {
@@ -57,7 +57,7 @@ func newCol(cName, dType, cComment, cKey, cType string) col {
 	}
 
 	if cKey == "PRI" {
-		modelType = "uint64"
+		modelType = "uint"
 		swgFormat, swgType = "int64", "integer"
 	}
 
@@ -73,11 +73,11 @@ func newCol(cName, dType, cComment, cKey, cType string) col {
 	if dType == "json" {
 		cComment = fmt.Sprintf("must a string can unmarsh to an Object. %s", cComment)
 	}
-	format := `gorm:"column:%s" form:"%s" json:"%s" comment:"%s" sql:"%s"`
+	formatTag := `gorm:"column:%s" form:"%s" json:"%s" comment:"%s" sql:"%s"`
 	if modelType == "*time.Time" {
-		format = `gorm:"column:%s" form:"%s" json:"%s,omitempty" comment:"%s" sql:"%s"`
+		formatTag = `gorm:"column:%s" form:"%s" json:"%s,omitempty" comment:"%s" sql:"%s"`
 	}
-	tag := fmt.Sprintf(format, cName, cName, cName, cComment, sql)
+	tag := fmt.Sprintf(formatTag, cName, cName, cName, cComment, sql)
 	modelTag := fmt.Sprintf("%s     `%s`", pt, tag)
 	return col{cName, cComment, modelProperty, modelType, modelTag, swgType, swgFormat}
 }

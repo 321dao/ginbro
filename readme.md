@@ -63,7 +63,13 @@ com/dejavuzhou/gin-project")
 - [ ] 更具数据映射关联模型
 - [ ] 分页总数做redis缓存
 - [ ] 支持生成gRPC服务
+- [ ] 更详细的gorm tag信息
+- [ ] json不现实password等隐私字段
+- [ ] swaggerDoc参数说明继续优化
 
+## 注意
+- mysql表中没有id/ID/Id/iD字段将不会生成路由和模型
+- json字段 在update/create的时候 必须使可以序列号的json字符串,否则mysql会报错
 
 ## 致谢
 - [gin-gonic/gin框架](https://github.com/gin-gonic/gin)

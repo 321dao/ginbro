@@ -13,10 +13,7 @@ func (p *ParseNgin) GenerateCodeFile() {
 	//copy file
 	p.copyFiles()
 	//find table where has id as primary key
-	sQ := `SELECT DISTINCT information_schema.tables.table_name
-		   FROM information_schema.tables JOIN information_schema.columns
-           ON information_schema.columns.table_name = information_schema.tables.table_name
-	       WHERE information_schema.columns.column_name = 'id' AND information_schema.tables.table_schema= ?`
+	sQ := "SELECT DISTINCT `TABLE_NAME` FROM `information_schema`.`COLUMNS` WHERE `TABLE_SCHEMA` = ? AND `COLUMN_NAME` = 'id'"
 	rows, err := p.db.Query(sQ, p.database)
 	if err != nil {
 		log.Fatal(err)

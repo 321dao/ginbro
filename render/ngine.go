@@ -86,12 +86,22 @@ func (p *ParseNgin) copyFolder() {
 
 func (p *ParseNgin) GoFmt() {
 	log.Println("running go fmt for the new project")
-	cmd := exec.Command("go", "fmt", p.ProjectPackage+"/...")
+
+	runCmd("go", "fmt", p.ProjectPackage+"/...")
+	log.Println("TODO::test your project")
+	//mainPath := path.Join(p.ProjectPath,"main.go")
+	//runCmd("go","run",mainPath)
+	log.Printf("cd %s", p.ProjectPath)
+	log.Println("go run main.go")
+
+}
+
+func runCmd(name string, args ...string) {
+	cmd := exec.Command(name, args...)
 	out, err := cmd.Output()
 	if err != nil {
 		log.Println(err)
 	} else {
 		log.Printf("%s", out)
 	}
-
 }

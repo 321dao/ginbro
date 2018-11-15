@@ -3,8 +3,6 @@ package cmd
 import (
 	"github.com/dejavuzhou/ginbo/render"
 	_ "github.com/go-sql-driver/mysql"
-	"log"
-
 	"github.com/spf13/cobra"
 )
 
@@ -22,7 +20,6 @@ var genCmd = &cobra.Command{
 		ng := render.NewParseNgin(mysqlUser, mysqlPassword, mysqlAddr, mysqlDatabase, mysqlCharset, outDir, appAddr)
 		ng.GenerateCodeFile()
 		ng.GoFmt()
-		log.Printf("now cd %s,and run go run main.go", ng.ProjectPath)
 	},
 }
 

@@ -90,12 +90,12 @@ func handleError(c *gin.Context, err error) bool {
 	return false
 }
 
-func parseParamID(c *gin.Context) (uint64, error) {
+func parseParamID(c *gin.Context) (uint, error) {
 	id := c.Param("id")
 	if parseId, err := strconv.ParseUint(id, 10, 32); err != nil {
 		return 0, errors.New("id must be an unsigned int")
 	} else {
-		return uint64(parseId), nil
+		return uint(parseId), nil
 	}
 }
 
