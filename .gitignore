@@ -1,0 +1,5 @@
+.idea
+.idea/*
+*.exe
+*.log
+*.toml
