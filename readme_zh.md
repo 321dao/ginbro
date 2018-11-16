@@ -1,32 +1,35 @@
-# [Converting a MySQL database to a RESTful golang APIs app in the fastest way](https://github.com/dejavuzhou/ginbro)
+# [MySQL数据库生成RESTful APIs APP](https://github.com/dejavuzhou/ginbro)
 ##### ginbro,**GinBro**,Gimbo,GimBro,**Jimbo**,GinOrm or GinGorm
-
-## [中文](readme_zh.md)
 ## Feature
-- powered with Swagger document and SwaggerUI
-- capable of serve VueJs app's static files
-- fastest way to generate a RESTful APIs application in Go
+- 自动生成完善的swagger(postman)文档
+- 可以serve SPA应用(比如vuejs全家桶)
+- 快速使用golang+gin+gorm改造依赖mysql项目
     
-## Ginbro Installation
-you can install it by go get command：
+## ginbro工具安装
+您可以通过如下的方式安装 ginbro 工具：
 ```shell
 go get github.com/dejavuzhou/ginbro
 ```
-the Ginbro executable binary will locate in $GOPATH/bin
-check GOBIN is in your environment PATH
+安装完之后，`ginbro` 可执行文件默认存放在 `$GOPATH/bin` 里面，所以您需要把 `$GOPATH/bin` 添加到您的环境变量中，才可以进行下一步。
+如何添加环境变量，请自行搜索
+如果你本机设置了`GOBIN`,那么上面的命令就会安装到 `GOBIN`下，请添加`GOBIN`到你的环境变量中
 
-
-
-
-## Usage
-`ginbro gen -u root -p PASSWORD -a "127.0.0.1:3306" -d dbname -o "github.com/mojocn/apiapp"` -o api_app_project
-- cd $GOPATH/src/api_app_project
-- `go build`  and `run`
-- Visit[`http://127.0.0.1:5555/swagger`](http://127.0.0.1:5555/swagger)
-
-### the generated project directory [ginbro-son DEMO代码](https://github.com/dejavuzhou/ginbro-son)
+### 如果没有配置GOBIN到环境变量,执行下面命令
 ```shell
-$GOPATH/src/apiapp>tree /f /a
+cd $GOPATH/src/github.com/dejavuzhou/ginbro
+go build
+./ginbro -h
+```
+
+## 使用
+`ginbro gen -u root -p PASSWORD -a "127.0.0.1:3306" -d dbname -o "github.com/mojocn/apiapp"`
+- cd 到生成的项目
+- go build  和run
+- 访问[`http://127.0.0.1:5555/swagger`](http://127.0.0.1:5555/swagger)
+
+### 生成新project目录树 [ginbro-son DEMO代码](https://github.com/dejavuzhou/ginbro-son)
+```shell
+C:\Users\zhouqing1\go\src\github.com\mojocn\apiapp>tree /f /a
 Folder PATH listing
 Volume serial number is 8452-D575
 C:.
@@ -77,7 +80,7 @@ C:.
         swagger-ui.css
         swagger-ui.js
 ```
-### Command help
+### 命令参数说明
 ```shell
 ginbro gen -h
 generate a RESTful APIs app with gin and gorm for gophers. For example:
@@ -98,12 +101,12 @@ com/dejavuzhou/gin-project")
   -u, --user string       database user name (default "root")
 ```
 ## 环境
-- my development environment
-    - Windows 10 pro 64
+- 我的开发环境
+    - Windows 10 专业版 64位
     - go version go1.11.1 windows/amd64
-    - mysql version <= 5.7
+    - mysql 数据库 <= 5.7
 
-## go packages
+## 依赖 go packages
 ```shell
 go get github.com/gin-contrib/cors
 go get github.com/gin-contrib/static
@@ -116,17 +119,31 @@ go get github.com/go-redis/redis
 go get github.com/go-sql-driver/mysql
 go get github.com/jinzhu/gorm
 ```
+## 开发计划
 
-## Info
-- table'schema which has no "ID","id","Id'" or "iD" will not generate model or route.
-- the column which type is json value must be a string which is able to decode to a JSON,when call POST or PATCH.
-## Thanks
-- [swagger Specification](https://swagger.io/specification/)
-- [gin-gonic/gin](https://github.com/gin-gonic/gin)
-- [GORM](http://gorm.io/)
-- [viper](https://github.com/spf13/viper)
-- [cobra](https://github.com/spf13/cobra#getting-started)
+- [ ] 支持PostgreSQL数据库
+- [ ] 支持一键生产jwt密码验证
+- [ ] 支持MongoDB数据库
+- [ ] 更具数据映射关联模型
+- [x] 分页总数做mem缓存
+- [ ] 支持生成gRPC服务
+- [ ] 更详细的gorm tag信息
+- [ ] json不现实password等隐私字段
+- [ ] swaggerDoc参数说明继续优化
+- [x] 生成友好的.gitignore
+- [ ] 完善go doc
+- [ ] 支持其他语言框架(php-laravel/lumne ,python flask ...)
 
-- [base64captcha](https://github.com/mojocn/base64Captcha)
+## 注意
+- mysql表中没有id/ID/Id/iD字段将不会生成路由和模型
+- json字段 在update/create的时候 必须使可以序列号的json字符串(`eg0:"{}" eg1:"[]"`),否则mysql会报错
 
-## Please feedback your [`issue`](https://github.com/dejavuzhou/ginbro/issues) with database schema file
+## 致谢
+- [swagger规范](https://swagger.io/specification/)
+- [gin-gonic/gin框架](https://github.com/gin-gonic/gin)
+- [GORM数据库ORM](http://gorm.io/)
+- [viper配置文件读取](https://github.com/spf13/viper)
+- [cobra命令行工具](https://github.com/spf13/cobra#getting-started)
+- [我的另外一个go图像验证码开源项目](https://github.com/mojocn/base64Captcha)
+
+## 请各位大神不要吝惜提[`issue`](https://github.com/dejavuzhou/ginbro/issues)同时附上数据库表结构文件
