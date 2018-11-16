@@ -97,7 +97,7 @@ com/dejavuzhou/gin-project")
   -p, --password string   database password (default "Password")
   -u, --user string       database user name (default "root")
 ```
-## 环境
+## environment
 - my development environment
     - Windows 10 pro 64
     - go version go1.11.1 windows/amd64
