@@ -104,5 +104,5 @@ func (s *memoryStore) GetUint(id string) (value uint, err error) {
 	if ok {
 		return value, nil
 	}
-	return 0, errors.New("mem:has value of this id, but is not type of uint64")
+	return 0, errors.New("mem:has value of this id, but is not type of uint")
 }
