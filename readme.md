@@ -139,6 +139,7 @@ go get github.com/jinzhu/gorm
 - json字段 在update/create的时候 必须使可以序列号的json字符串(`eg0:"{}" eg1:"[]"`),否则mysql会报错
 
 ## 致谢
+- [swagger规范](https://swagger.io/specification/)
 - [gin-gonic/gin框架](https://github.com/gin-gonic/gin)
 - [GORM数据库ORM](http://gorm.io/)
 - [viper配置文件读取](https://github.com/spf13/viper)

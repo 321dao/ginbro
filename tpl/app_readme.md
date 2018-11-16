@@ -1,6 +1,6 @@
 # A GinBro RESTful APIs
 
-## 安装依赖
+## Packages
 	go get github.com/gin-contrib/cors
 	go get github.com/gin-contrib/static
 	go get github.com/gin-gonic/autotls
@@ -17,6 +17,12 @@
 - [app INFO ](http://1{{.AppAddr}}/app/info)`http://{{.AppAddr}}/app/info`
 - API baseURL : `http://{{.AppAddr}}/api/v1`
 
-## 注意
+## Info
 - table'schema which has no "ID","id","Id'" or "iD" will not generate model or route.
 - the column which type is json value must be a string which is able to decode to a JSON,when call POST or PATCH.
+## Thanks
+- [swagger Specification](https://swagger.io/specification/)
+- [gin-gonic/gin](https://github.com/gin-gonic/gin)
+- [GORM](http://gorm.io/)
+- [viper](https://github.com/spf13/viper)
+- [cobra](https://github.com/spf13/cobra#getting-started)
