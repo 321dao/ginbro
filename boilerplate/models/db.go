@@ -3,7 +3,7 @@ package models
 import (
 	"errors"
 	"fmt"
-	_ "github.com/dejavuzhou/ginbo/boilerplate/config"
+	_ "github.com/dejavuzhou/ginbro/boilerplate/config"
 	"github.com/go-redis/redis"
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/jinzhu/gorm"

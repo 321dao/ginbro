@@ -1,4 +1,4 @@
-# [一行命令根据mysql数据库生产RESTful APIs APP](https://github.com/dejavuzhou/ginbo)
+# [一行命令根据mysql数据库生产RESTful APIs APP](https://github.com/dejavuzhou/ginbro)
 ##### Ginbo,**GinBro**,Gimbo,GimBro,**Jimbo**,GinOrm or GinGorm
 ## Feature
 - 自动生成完善的swagger(postman)文档
@@ -8,7 +8,7 @@
 ## ginbo工具安装
 您可以通过如下的方式安装 ginbo 工具：
 ```shell
-go get github.com/dejavuzhou/ginbo
+go get github.com/dejavuzhou/ginbro
 ```
 安装完之后，`ginbo` 可执行文件默认存放在 `$GOPATH/bin` 里面，所以您需要把 `$GOPATH/bin` 添加到您的环境变量中，才可以进行下一步。
 如何添加环境变量，请自行搜索
@@ -20,7 +20,7 @@ go get github.com/dejavuzhou/ginbo
 - go build  和run
 - 访问[`http://127.0.0.1:5555/swagger`](http://127.0.0.1:5555/swagger)
 
-### 生成新project目录树 [ginbo-son DEMO代码](https://github.com/dejavuzhou/ginbo-son)
+### 生成新project目录树 [ginbo-son DEMO代码](https://github.com/dejavuzhou/ginbro-son)
 ```shell
 C:\Users\zhouqing1\go\src\github.com\mojocn\apiapp>tree /f /a
 Folder PATH listing
@@ -101,16 +101,16 @@ com/dejavuzhou/gin-project")
 
 ## 依赖 go packages
 ```shell
-go get -u github.com/gin-contrib/cors
-go get -u github.com/gin-contrib/static
-go get -u github.com/gin-gonic/autotls
-go get -u github.com/gin-gonic/gin
-go get -u github.com/sirupsen/logrus
-go get -u github.com/spf13/viper
-go get -u github.com/spf13/cobra
-go get -u github.com/go-redis/redis
-go get -u github.com/go-sql-driver/mysql
-go get -u github.com/jinzhu/gorm
+go get github.com/gin-contrib/cors
+go get github.com/gin-contrib/static
+go get github.com/gin-gonic/autotls
+go get github.com/gin-gonic/gin
+go get github.com/sirupsen/logrus
+go get github.com/spf13/viper
+go get github.com/spf13/cobra
+go get github.com/go-redis/redis
+go get github.com/go-sql-driver/mysql
+go get github.com/jinzhu/gorm
 ```
 ## 开发计划
 
@@ -138,4 +138,4 @@ go get -u github.com/jinzhu/gorm
 - [cobra命令行工具](https://github.com/spf13/cobra#getting-started)
 - [我的另外一个go图像验证码开源项目](https://github.com/mojocn/base64Captcha)
 
-## 请各位大神不要吝惜提[`issue`](https://github.com/dejavuzhou/ginbo/issues)同时附上数据库表结构文件
+## 请各位大神不要吝惜提[`issue`](https://github.com/dejavuzhou/ginbro/issues)同时附上数据库表结构文件

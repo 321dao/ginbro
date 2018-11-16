@@ -76,7 +76,7 @@ func (p *ParseNgin) copyFiles() error {
 func (p *ParseNgin) copyFolder() {
 	tasks := []string{"swagger", "static"}
 	for _, vv := range tasks {
-		src := path.Join(goPath, "src", "github.com/dejavuzhou/ginbo/boilerplate", vv)
+		src := path.Join(goPath, "src", "github.com/dejavuzhou/ginbro/boilerplate", vv)
 		dst := path.Join(p.ProjectPath, vv)
 		if err := CopyDir(src, dst); err != nil {
 			log.Println(err)

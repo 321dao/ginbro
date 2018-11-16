@@ -9,7 +9,7 @@
 package main
 
 import (
-	"github.com/dejavuzhou/ginbo/boilerplate/handlers"
+	"github.com/dejavuzhou/ginbro/boilerplate/handlers"
 )
 
 func main() {

@@ -11,7 +11,7 @@
 package main
 
 import (
-	"github.com/dejavuzhou/ginbo/cmd"
+	"github.com/dejavuzhou/ginbro/cmd"
 )
 
 func main() {

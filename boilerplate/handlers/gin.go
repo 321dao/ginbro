@@ -3,7 +3,7 @@ package handlers
 import (
 	"errors"
 	"fmt"
-	"github.com/dejavuzhou/ginbo/boilerplate/models"
+	"github.com/dejavuzhou/ginbro/boilerplate/models"
 	"github.com/gin-contrib/cors"
 	"github.com/gin-contrib/static"
 	"github.com/gin-gonic/autotls"

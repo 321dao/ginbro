@@ -1,7 +1,7 @@
 package cmd
 
 import (
-	"github.com/dejavuzhou/ginbo/render"
+	"github.com/dejavuzhou/ginbro/render"
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/spf13/cobra"
 )

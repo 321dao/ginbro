@@ -15,7 +15,7 @@ import (
 var goPath = getGopath()
 
 func parseTmpl(tmpName, projectRoot, outUri string, data interface{}) error {
-	tplPath := path.Join(goPath, "src", "github.com/dejavuzhou/ginbo/tpl", tmpName)
+	tplPath := path.Join(goPath, "src", "github.com/dejavuzhou/ginbro/tpl", tmpName)
 	tmpl, err := template.ParseFiles(tplPath)
 	if err != nil {
 		return err
