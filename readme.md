@@ -24,7 +24,7 @@ check GOBIN is in your environment PATH
 - `go build`  and `run`
 - Visit[`http://127.0.0.1:5555/swagger`](http://127.0.0.1:5555/swagger)
 
-### the generated project directory [ginbro-son DEMO代码](https://github.com/dejavuzhou/ginbro-son)
+### the generated project directory [ginbro-son DEMO](https://github.com/dejavuzhou/ginbro-son)
 ```shell
 $GOPATH/src/apiapp>tree /f /a
 Folder PATH listing
