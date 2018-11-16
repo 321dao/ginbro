@@ -14,6 +14,13 @@ go get github.com/dejavuzhou/ginbro
 如何添加环境变量，请自行搜索
 如果你本机设置了`GOBIN`,那么上面的命令就会安装到 `GOBIN`下，请添加`GOBIN`到你的环境变量中
 
+### 如果没有配置GOBIN到环境变量,执行下面命令
+```shell
+cd $GOPATH/src/github.com/dejavuzhou/ginbro
+go build
+./ginbro -h
+```
+
 ## 使用
 `ginbro gen -u root -p PASSWORD -a "127.0.0.1:3306" -d dbname -o "github.com/mojocn/apiapp"`
 - cd 到生成的项目
