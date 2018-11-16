@@ -1,6 +1,6 @@
 swagger: "2.0"
 info:
-  description: "Ginbo RESTful APIs"
+  description: "A GinBro RESTful APIs"
   version: "1.0.0"
   title: "Ginbo RESTful APIs Application"
 host: "{{.AppAddr}}"

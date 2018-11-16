@@ -1,26 +1,26 @@
 # [一行命令根据mysql数据库生产RESTful APIs APP](https://github.com/dejavuzhou/ginbro)
-##### Ginbo,**GinBro**,Gimbo,GimBro,**Jimbo**,GinOrm or GinGorm
+##### ginbro,**GinBro**,Gimbo,GimBro,**Jimbo**,GinOrm or GinGorm
 ## Feature
 - 自动生成完善的swagger(postman)文档
 - 可以serve SPA应用(比如vuejs全家桶)
 - 快速使用golang+gin+gorm改造依赖mysql项目
     
-## ginbo工具安装
-您可以通过如下的方式安装 ginbo 工具：
+## ginbro工具安装
+您可以通过如下的方式安装 ginbro 工具：
 ```shell
 go get github.com/dejavuzhou/ginbro
 ```
-安装完之后，`ginbo` 可执行文件默认存放在 `$GOPATH/bin` 里面，所以您需要把 `$GOPATH/bin` 添加到您的环境变量中，才可以进行下一步。
+安装完之后，`ginbro` 可执行文件默认存放在 `$GOPATH/bin` 里面，所以您需要把 `$GOPATH/bin` 添加到您的环境变量中，才可以进行下一步。
 如何添加环境变量，请自行搜索
 如果你本机设置了`GOBIN`,那么上面的命令就会安装到 `GOBIN`下，请添加`GOBIN`到你的环境变量中
 
 ## 使用
-`ginbo gen -u root -p PASSWORD -a "127.0.0.1:3306" -d dbname -o "github.com/mojocn/apiapp"`
+`ginbro gen -u root -p PASSWORD -a "127.0.0.1:3306" -d dbname -o "github.com/mojocn/apiapp"`
 - cd 到生成的项目
 - go build  和run
 - 访问[`http://127.0.0.1:5555/swagger`](http://127.0.0.1:5555/swagger)
 
-### 生成新project目录树 [ginbo-son DEMO代码](https://github.com/dejavuzhou/ginbro-son)
+### 生成新project目录树 [ginbro-son DEMO代码](https://github.com/dejavuzhou/ginbro-son)
 ```shell
 C:\Users\zhouqing1\go\src\github.com\mojocn\apiapp>tree /f /a
 Folder PATH listing
@@ -75,9 +75,9 @@ C:.
 ```
 ### 命令参数说明
 ```shell
-ginbo gen -h
+ginbro gen -h
 generate a RESTful APIs app with gin and gorm for gophers. For example:
-        ginbo gen -u eric -p password -a "127.0.0.1:3306" -d "mydb"
+        ginbro gen -u eric -p password -a "127.0.0.1:3306" -d "mydb"
 
 Usage:
   create gen [flags]
