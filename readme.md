@@ -125,12 +125,12 @@ go get github.com/jinzhu/gorm
 - [ ] 支持一键生产jwt密码验证
 - [ ] 支持MongoDB数据库
 - [ ] 更具数据映射关联模型
-- [ ] 分页总数做redis缓存
+- [x] 分页总数做mem缓存
 - [ ] 支持生成gRPC服务
 - [ ] 更详细的gorm tag信息
 - [ ] json不现实password等隐私字段
 - [ ] swaggerDoc参数说明继续优化
-- [ ] 生成友好的.gitignore
+- [x] 生成友好的.gitignore
 - [ ] 完善go doc
 - [ ] 支持其他语言框架(php-laravel/lumne ,python flask ...)
 

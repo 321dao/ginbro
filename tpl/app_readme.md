@@ -11,12 +11,12 @@
     go get github.com/go-sql-driver/mysql
     go get github.com/jinzhu/gorm
     
-## 使用
+## Usage
 - [swagger DOC ](http://{{.AppAddr}}/swagger/)`http://{{.AppAddr}}/swagger/`
 - [static ](http://{{.AppAddr}})`http://{{.AppAddr}}`
 - [app INFO ](http://1{{.AppAddr}}/app/info)`http://{{.AppAddr}}/app/info`
 - API baseURL : `http://{{.AppAddr}}/api/v1`
 
 ## 注意
-- mysql表中没有id/ID/Id/iD字段将不会生成路由和模型
-- json字段 在update/create的时候 必须使可以序列号的json字符串,否则mysql会报错
+- table'schema which has no "ID","id","Id'" or "iD" will not generate model or route.
+- the column which type is json value must be a string which is able to decode to a JSON,when call POST or PATCH.

@@ -12,6 +12,8 @@
     enable_swagger = true
     static_path = "./static/"  # path must be an absolute path or relative to the go-build-executable file, may cause api perform decrease
     enable_not_found = true # if true and static_path is not empty string, all not found route will serve static/index.html
+    mem_expire_min = 60 # memory cache expire in 60 minutes
+    mem_max_count = 1024000 # memory cache maxium store count
 [mysql]
     addr = "{{.MysqlAddr}}"
     user = "{{.MysqlUser}}"

@@ -60,11 +60,13 @@ func (p *ParseNgin) makeModuleDir(module string) {
 func (p *ParseNgin) copyFiles() error {
 
 	tasks := map[string]string{
-		"main.tpl":         "main.go",
-		"config.toml.tpl":  "config.toml",
-		"config.viper.tpl": "config/viper.go",
-		"handlers.gin.tpl": "handlers/gin.go",
-		"models.db.tpl":    "models/db.go",
+		"main.tpl":             "main.go",
+		"config.toml.tpl":      "config.toml",
+		"config.viper.tpl":     "config/viper.go",
+		"handlers.gin.tpl":     "handlers/gin.go",
+		"models.db.tpl":        "models/db.go",
+		"gitignore.tpl":        ".gitignore",
+		"models.memory.go.tpl": "models/memory.go",
 	}
 	for kk, vv := range tasks {
 		if err := parseTmpl(kk, p.ProjectPackage, vv, p); err != nil {

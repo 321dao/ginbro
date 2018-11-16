@@ -1,13 +1,15 @@
 package models
+
 import (
 	"errors"
 	"fmt"
-	_ "{{.ProjectPackage}}/config"
+	_ "github.com/dejavuzhou/ginbro/boilerplate/config"
 	"github.com/go-redis/redis"
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/jinzhu/gorm"
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/viper"
+	"reflect"
 	"strconv"
 	"strings"
 )
@@ -15,6 +17,8 @@ import (
 //redis client
 var redisDB *redis.Client
 var mysqlDB *gorm.DB
+
+const redisPrefix = "ginbro:"
 
 func init() {
 	//initializing redis client
@@ -56,7 +60,7 @@ func init() {
 func Close() {
 	if mysqlDB != nil {
 		mysqlDB.Close()
-			}
+	}
 	if redisDB != nil {
 		redisDB.Close()
 	}
@@ -70,31 +74,13 @@ type PaginationQuery struct {
 	Limit  uint     `form:"limit"`
 }
 
-func crudAll(m interface{}, q *PaginationQuery, list interface{}) (total uint, err error) {
-	var tx = mysqlDB
-	for _, val := range q.Where {
-		w := strings.SplitN(val, ":", 2)
-		if len(w) == 2 {
-			bindKey, bindValue := w[0], w[1]
-			if intV, err := strconv.ParseInt(bindValue, 10, 64); err == nil {
-				// bind value is int
-				field := fmt.Sprintf("`%s` > ?", bindKey)
-				tx = tx.Where(field, intV)
-			} else if fV, err := strconv.ParseFloat(bindValue, 64); err == nil {
-				// bind value is float
-				field := fmt.Sprintf("`%s` > ?", bindKey)
-				tx = tx.Where(field, fV)
-			} else if bindValue != "" {
-				// bind value is string
-				field := fmt.Sprintf("`%s` LIKE ?", bindKey)
-				sV := fmt.Sprintf("%%%s%%", bindValue)
-				tx = tx.Where(field, sV)
-			}
-		}
-	}
+func (pq *PaginationQuery) String() string {
+	return fmt.Sprintf("w=%v_f=%s_o=%s_of=%d_l=%d", pq.Where, pq.Fields, pq.Order, pq.Offset, pq.Limit)
+}
 
-	total = 0
-	tx = tx.Model(m).Count(&total)
+func crudAll(m interface{}, q *PaginationQuery, list interface{}) (total uint, err error) {
+	var tx *gorm.DB
+	total,tx = getResourceCount(m,q)
 	if q.Fields != "" {
 		columns := strings.Split(q.Fields, ",")
 		if len(columns) > 0 {
@@ -143,4 +129,46 @@ func crudDelete(m interface{}) (err error) {
 		return errors.New("resource is not found to destroy")
 	}
 	return nil
+}
+func getResourceCount(m interface{}, q *PaginationQuery) (uint, *gorm.DB) {
+	var tx = mysqlDB.Model(m)
+	for _, val := range q.Where {
+		w := strings.SplitN(val, ":", 2)
+		if len(w) == 2 {
+			bindKey, bindValue := w[0], w[1]
+			if intV, err := strconv.ParseInt(bindValue, 10, 64); err == nil {
+				// bind value is int
+				field := fmt.Sprintf("`%s` > ?", bindKey)
+				tx = tx.Where(field, intV)
+			} else if fV, err := strconv.ParseFloat(bindValue, 64); err == nil {
+				// bind value is float
+				field := fmt.Sprintf("`%s` > ?", bindKey)
+				tx = tx.Where(field, fV)
+			} else if bindValue != "" {
+				// bind value is string
+				field := fmt.Sprintf("`%s` LIKE ?", bindKey)
+				sV := fmt.Sprintf("%%%s%%", bindValue)
+				tx = tx.Where(field, sV)
+			}
+		}
+	}
+	modelName := getType(m)
+	rKey := redisPrefix + modelName + q.String() + "_count"
+
+	if v, err := mem.GetUint(rKey); err != nil {
+		var count uint = 0
+		tx.Count(&count)
+		mem.Set(rKey,count)
+		return count, tx
+	}else {
+		return v,tx
+	}
+}
+
+func getType(v interface{}) string {
+	if t := reflect.TypeOf(v); t.Kind() == reflect.Ptr {
+		return "*" + t.Elem().Name()
+	} else {
+		return t.Name()
+	}
 }
