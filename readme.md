@@ -26,7 +26,7 @@ go build
 - cd 到生成的项目
 - go build  和run
 - 访问[`http://127.0.0.1:5555/swagger`](http://127.0.0.1:5555/swagger)
-[![IMAGE ALT TEXT](http://img.youtube.com/vi/v1cElzn9Reg/0.jpg)](https://www.youtube.com/embed/v1cElzn9Reg "ginbro")
+
 ### 生成新project目录树 [ginbro-son DEMO代码](https://github.com/dejavuzhou/ginbro-son)
 ```shell
 C:\Users\zhouqing1\go\src\github.com\mojocn\apiapp>tree /f /a
