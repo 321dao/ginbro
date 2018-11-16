@@ -67,11 +67,11 @@ func Close() {
 }
 
 type PaginationQuery struct {
-	Where  []string `form:"where"`
-	Fields string   `form:"fields"`
-	Order  string   `form:"order"`
-	Offset uint     `form:"offset"`
-	Limit  uint     `form:"limit"`
+	Where  string `form:"where"`
+	Fields string `form:"fields"`
+	Order  string `form:"order"`
+	Offset uint   `form:"offset"`
+	Limit  uint   `form:"limit"`
 }
 
 func (pq *PaginationQuery) String() string {
@@ -132,7 +132,8 @@ func crudDelete(m interface{}) (err error) {
 }
 func getResourceCount(m interface{}, q *PaginationQuery) (uint, *gorm.DB) {
 	var tx = mysqlDB.Model(m)
-	for _, val := range q.Where {
+	conditions := strings.Split(q.Where, ",")
+	for _, val := range conditions {
 		w := strings.SplitN(val, ":", 2)
 		if len(w) == 2 {
 			bindKey, bindValue := w[0], w[1]

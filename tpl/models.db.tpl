@@ -13,7 +13,6 @@ import (
 	"strconv"
 	"strings"
 )
-
 //redis client
 var redisDB *redis.Client
 var mysqlDB *gorm.DB
@@ -67,7 +66,7 @@ func Close() {
 }
 
 type PaginationQuery struct {
-	Where  []string `form:"where"`
+	Where  string `form:"where"`
 	Fields string   `form:"fields"`
 	Order  string   `form:"order"`
 	Offset uint     `form:"offset"`
@@ -80,7 +79,7 @@ func (pq *PaginationQuery) String() string {
 
 func crudAll(m interface{}, q *PaginationQuery, list interface{}) (total uint, err error) {
 	var tx *gorm.DB
-	total,tx = getResourceCount(m,q)
+	total, tx = getResourceCount(m, q)
 	if q.Fields != "" {
 		columns := strings.Split(q.Fields, ",")
 		if len(columns) > 0 {
@@ -132,7 +131,8 @@ func crudDelete(m interface{}) (err error) {
 }
 func getResourceCount(m interface{}, q *PaginationQuery) (uint, *gorm.DB) {
 	var tx = mysqlDB.Model(m)
-	for _, val := range q.Where {
+	conditions :=  strings.Split(q.Where,",")
+	for _, val := range conditions {
 		w := strings.SplitN(val, ":", 2)
 		if len(w) == 2 {
 			bindKey, bindValue := w[0], w[1]
@@ -158,10 +158,10 @@ func getResourceCount(m interface{}, q *PaginationQuery) (uint, *gorm.DB) {
 	if v, err := mem.GetUint(rKey); err != nil {
 		var count uint = 0
 		tx.Count(&count)
-		mem.Set(rKey,count)
+		mem.Set(rKey, count)
 		return count, tx
-	}else {
-		return v,tx
+	} else {
+		return v, tx
 	}
 }
 
