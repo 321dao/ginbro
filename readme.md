@@ -2,11 +2,11 @@
 ##### Ginbo,**GinBro**,Gimbo,GimBro,**Jimbo**,GinOrm or GinGorm
 ## Feature
 - 自动生成完善的swagger(postman)文档
-- 可以server SPA应用(比如vuejs全家桶)
+- 可以serve SPA应用(比如vuejs全家桶)
 - 快速使用golang+gin+gorm改造依赖mysql项目
     
 ## ginbo工具安装
-您可以通过如下的方式安装 bee 工具：
+您可以通过如下的方式安装 ginbo 工具：
 ```shell
 go get github.com/dejavuzhou/ginbo
 ```
@@ -99,7 +99,7 @@ com/dejavuzhou/gin-project")
     - go version go1.11.1 windows/amd64
     - mysql 数据库 <= 5.7
 
-## 依赖
+## 依赖 go packages
 ```shell
 go get -u github.com/gin-contrib/cors
 go get -u github.com/gin-contrib/static
@@ -125,15 +125,17 @@ go get -u github.com/jinzhu/gorm
 - [ ] swaggerDoc参数说明继续优化
 - [ ] 生成友好的.gitignore
 - [ ] 完善go doc
+- [ ] 支持其他语言框架(php-laravel/lumne ,python flask ...)
 
 ## 注意
 - mysql表中没有id/ID/Id/iD字段将不会生成路由和模型
-- json字段 在update/create的时候 必须使可以序列号的json字符串,否则mysql会报错
+- json字段 在update/create的时候 必须使可以序列号的json字符串(`eg0:"{}" eg1:"[]"`),否则mysql会报错
 
 ## 致谢
 - [gin-gonic/gin框架](https://github.com/gin-gonic/gin)
 - [GORM数据库ORM](http://gorm.io/)
 - [viper配置文件读取](https://github.com/spf13/viper)
 - [cobra命令行工具](https://github.com/spf13/cobra#getting-started)
+- [我的另外一个go图像验证码开源项目](https://github.com/mojocn/base64Captcha)
 
-## 请各位大神不要吝惜提`issue`同时附上数据库表结构文件
+## 请各位大神不要吝惜提[`issue`](https://github.com/dejavuzhou/ginbo/issues)同时附上数据库表结构文件
